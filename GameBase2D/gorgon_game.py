@@ -17,8 +17,8 @@ Estructura de archivos esperada:
       Run.png             ← 7 frames, 128x128 c/u
 
 Controles:
-  ← / →        Caminar
-  Shift + ←/→  Correr
+  a / d        Caminar
+  Shift + a/d  Correr
   Espacio       Saltar
   ESC           Salir
 """
@@ -31,9 +31,9 @@ import os
 import abc
 from typing import Optional
 
-# ─────────────────────────────────────────────
+
 #  CONSTANTES GLOBALES
-# ─────────────────────────────────────────────
+
 SCREEN_W, SCREEN_H = 1100, 620
 FPS = 60
 GRAVITY = 0.55
@@ -142,7 +142,7 @@ class OrbDecorator(CharacterStats):
     def color(self) -> tuple: ...
 
 
-# ── Decoradores concretos ─────────────────────
+# Decoradores concretos
 
 class SpeedBoostOrb(OrbDecorator):
     """Aumenta la velocidad de movimiento × 1.8."""
@@ -201,6 +201,7 @@ class ShieldOrb(OrbDecorator):
 
 
 # Mapa de fábrica para crear orbes aleatoriamente
+
 ORB_FACTORY = [SpeedBoostOrb, SpeedSlowOrb, SuperJumpOrb, NoJumpOrb, ShieldOrb]
 
 #  ANIMACIÓN DE SPRITES
@@ -282,7 +283,8 @@ class Gorgon:
         # Escudo visual
         self._shield_pulse = 0.0
 
-    # ── Propiedades físicas derivadas ─────────
+    # Propiedades físicas derivadas 
+  
     @property
     def speed(self)      -> float: return self._effective.get_speed()
     @property
@@ -320,7 +322,8 @@ class Gorgon:
             stats = orb
         self._effective = stats
 
-    # ── Update ────────────────────────────────
+    # Update
+  
     def update(self, dt: float, platforms: list[pygame.Rect]):
         keys = pygame.key.get_pressed()
 
@@ -410,7 +413,8 @@ class Gorgon:
             self.world_orbs.remove(worb)
             self.apply_orb(worb.orb_class)
 
-    # ── Dibujar ───────────────────────────────
+    # Dibujar 
+  
     def draw(self, surface: pygame.Surface):
         frame = self.anims[self._current_anim].get_frame()
         sw    = int(self.FRAME_W * self.SCALE)
