@@ -1,28 +1,3 @@
-"""
-╔══════════════════════════════════════════════════════════════╗
-║              GORGON'S REALM - Prototipo 2D                  ║
-║                                                              ║
-║  Personaje : Gorgona mitológica (cola de serpiente)          ║
-║  Patrón    : Decorador estructural para efectos de Orbe      ║
-║  Orbes     : Speed, Jump, Shield (20-60 seg random)          ║
-╚══════════════════════════════════════════════════════════════╝
-
-Estructura de archivos esperada:
-  gorgon_game.py          ← este archivo
-  assets/
-    sprites/
-      Idle.png            ← 7 frames, 128x128 c/u
-      Idle_2.png          ← 5 frames, 128x128 c/u  (animación de salto)
-      Walk.png            ← 13 frames, 128x128 c/u
-      Run.png             ← 7 frames, 128x128 c/u
-
-Controles:
-  a / d        Caminar
-  Shift + a/d  Correr
-  Espacio       Saltar
-  ESC           Salir
-"""
-
 import pygame
 import sys
 import random
